@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Peteshow by brousalis</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Peteshow</h1>
+        <p>A customizable framework for filling out forms with fake data</p>
+        <p class="view"><a href="https://github.com/brousalis/peteshow">View the Project on GitHub <small>brousalis/peteshow</small></a></p>
+        <ul>
+          <li><a href="https://github.com/brousalis/peteshow/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/brousalis/peteshow/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/brousalis/peteshow">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="http://i.imgur.com/JcT5eMS.png" alt="Imgur"></p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>See the <a href="https://github.com/brousalis/peteshow/wiki">Wiki on GitHub</a> for documentation.</p>
+
+<ul>
+<li><a href="https://github.com/brousalis/peteshow/wiki/Setup">Setup</a></li>
+<li><a href="https://github.com/brousalis/peteshow/wiki/Usage">Usage</a></li>
+<li><a href="https://github.com/brousalis/peteshow/wiki/Custom-plugins">Custom plugins</a></li>
+<li><a href="https://github.com/brousalis/peteshow/wiki/Plugin-example">Plugin example</a></li>
+<li><a href="https://github.com/brousalis/peteshow/wiki/Change-log">Change log</a></li>
+</ul><p>Also specific pages for frameworks:</p>
+
+<ul>
+<li><a href="https://github.com/brousalis/peteshow/wiki/Ruby-on-Rails-gem">Ruby on Rails</a></li>
+</ul><h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h4>
+<a name="peteshowinit" class="anchor" href="#peteshowinit"><span class="octicon octicon-link"></span></a>Peteshow.init()</h4>
+
+<p>Adds the seen above menu to the top left of your page. Press backtick <code>`</code> to toggle the menu.</p>
+
+<h4>
+<a name="peteshowfilloutforms" class="anchor" href="#peteshowfilloutforms"><span class="octicon octicon-link"></span></a>Peteshow.fillOutForms()</h4>
+
+<p>Using the <a href="https://github.com/brousalis/peteshow/blob/master/src/peteshow-core.js#L2">default ruleset</a>, fills out inputs, checkboxes, selects, and radio buttons. While the menu is open, press <code>f</code> to call this method.</p>
+
+<h4>
+<a name="peteshowfilloutformsandsubmit" class="anchor" href="#peteshowfilloutformsandsubmit"><span class="octicon octicon-link"></span></a>Peteshow.fillOutFormsAndSubmit()</h4>
+
+<p>Does the same as above, but also submits the form. Press <code>q</code> to call this method.</p>
+
+<p>It also has several other methods exposed:</p>
+
+<table>
+<thead><tr>
+<th>Methods</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>submitForm()</code></td>
+<td>Submits the form on the page, can be customized</td>
+</tr>
+<tr>
+<td><code>destroy()</code></td>
+<td>Removes the Peteshow menu from the dom</td>
+</tr>
+<tr>
+<td><code>hide()</code></td>
+<td>Hides the Peteshow menu</td>
+</tr>
+<tr>
+<td><code>show()</code></td>
+<td>Shows the Peteshow menu</td>
+</tr>
+<tr>
+<td><code>formatDate(format, Date)</code></td>
+<td>Returns a string with the specified format</td>
+</tr>
+<tr>
+<td><code>randomChars(length, chars)</code></td>
+<td>Returns a string made up of specific characters</td>
+</tr>
+<tr>
+<td><code>randomDate(format)</code></td>
+<td>Returns a random date string</td>
+</tr>
+<tr>
+<td><code>randomEmail()</code></td>
+<td>Returns a random email, customized using init options</td>
+</tr>
+<tr>
+<td><code>randomLetters(length)</code></td>
+<td>Returns random letters</td>
+</tr>
+<tr>
+<td><code>randomNumber(length)</code></td>
+<td>Returns a random number, you can pass an optional prefix</td>
+</tr>
+<tr>
+<td><code>randomNumberRange(min,max)</code></td>
+<td>Returns a number between <code>min</code> and <code>max</code>
+</td>
+</tr>
+</tbody>
+</table><p>To access the stored values used in the <code>reuse</code> option, use <code>Peteshow.storage</code>:</p>
+
+<table>
+<thead><tr>
+<th>Methods</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>storage.clear()</code></td>
+<td>Clears saved fields from cookies and localstorage</td>
+</tr>
+<tr>
+<td><code>storage.get()</code></td>
+<td>Prints out the saved fields used in the <code>reuse</code> option</td>
+</tr>
+<tr>
+<td><code>storage.set(hash)</code></td>
+<td>Sets either cookie or localstorage, takes a hash</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="default-options" class="anchor" href="#default-options"><span class="octicon octicon-link"></span></a>Default options</h2>
+
+<p>Peteshow can be customized by creating a <a href="https://github.com/brousalis/peteshow/wiki/Custom-plugins">custom plugin</a>. Here are the default options:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">emailPrefix</span> <span class="o">:</span> <span class="s1">'test-'</span><span class="p">,</span>
+  <span class="nx">emailDomain</span> <span class="o">:</span> <span class="s1">'example.com'</span><span class="p">,</span>
+  <span class="nx">form</span>        <span class="o">:</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">blur</span>        <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">cookies</span>     <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">rules</span>       <span class="o">:</span> <span class="p">{},</span>
+  <span class="nx">ignore</span>      <span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">filter</span>      <span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">force</span>       <span class="o">:</span> <span class="p">{},</span>
+  <span class="nx">reuse</span>       <span class="o">:</span> <span class="p">{},</span>
+  <span class="nx">commands</span>    <span class="o">:</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">special</span>     <span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+  <span class="nx">events</span>      <span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+<span class="p">}</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Peteshow</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+<h3>
+<a name="further-notes" class="anchor" href="#further-notes"><span class="octicon octicon-link"></span></a>Further notes</h3>
+
+<p><a href="http://www.enova.com"><img src="https://www.enova.com/wp-content/uploads/2014/01/Enova-logo.jpg" alt="enova"></a></p>
+
+<p>Developed by <a href="http://twitter.com/brousalis">Pete Brousalis</a> in his spare time for use at <a href="http://www.enova.com/">Enova</a> in Chicago, IL.</p>
+
+<p>Special thanks to Matthew Bergman &amp; Marak Squires for <a href="http://github.com/marak/Faker.js/">Faker.js</a>, Adam Gschwender for <a href="https://github.com/agschwender/jquery.formatDateTime">jquery.formatDateTime</a>, Klaus Hartl for <a href="https://github.com/carhartl/jquery-cookie">jquery.cookie</a>, all used by Peteshow.</p>
+
+<p>And especially Donnie Hall for creating the original <code>Peepshow</code></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/brousalis">brousalis</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
