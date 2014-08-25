@@ -60,7 +60,7 @@
     if(e.ctrlKey) code = 'ctrl_'+code
     if(e.altKey || (e.originalEvent && e.originalEvent.metaKey)) code = 'alt_'+code
     if(e.shiftKey) code = 'shift_'+code
-    if($.inArray(e.keyCode, [9,16,17,18, 91, 93, 224]) != -1) return
+    if($.inArray(e.keyCode, [9,16,17,18,91,93,224]) != -1) return
     if(e.metaKey) return
 
     if(e.keyCode == 192) // backtick
@@ -74,12 +74,13 @@
   }
 
   Peteshow.initCommands = function() {
-    var base =  "<li><a data-command='F' href='#' id='fill-out-forms'>Fill Out Forms</a></li>"
-        base += "<li><a data-command='Q' href='#' id='fill-out-forms-and-submit'>Fill Out and Submit</a></li>"
+    var base =  Peteshow.createCommand('Fill Out Forms', 'F')
+        base += Peteshow.createCommand('Fill Out Forms and Submit', 'Q')
         base += Peteshow.storage.output()
-        base += "<li><a data-command='H' href='#' id='hide-peteshow'>Hide</a></li>"
+        base += Peteshow.createCommand('Hide', 'H')
 
-    $commands.html(_options.commands + base)
+console.log(base)
+    $commands.html(base)
 
     // bind events
     var commands = [
@@ -100,6 +101,19 @@
     _options.events()
   }
 
+  Peteshow.createCommand = function(name, keybind) {
+    if(typeof keybind === 'undefined' || keybind === null) keybind = false
+
+    var id = name.replace(/\s(.)/g, function($1) { return $1.toLowerCase(); })
+                 .replace(/^(.)/, function($1) { return $1.toLowerCase(); })
+                 .replace(/\s/g, '-')
+
+    var li = $('<li/>'),
+        a  = $('<a/>', { id: id, text: name, href: '#' }).attr('data-command', keybind)
+
+    return (li.append(a))[0].outerHTML
+  }
+
   Peteshow.fillOutForms = function() {
     var rules  = $.extend(true, getDefaultRules(), _options.rules || {})
 
@@ -113,7 +127,7 @@
     $.each(_options.force, function(element,v) {
       $(element)
         .filterFields()
-        .val($.isFunction(v) ? v() : v)
+        .val(v)
 
       if(_options.blur) $(element).blur()
     })
@@ -123,7 +137,7 @@
       $(element)
         .filter(':visible')
         .filterFields()
-        .val($.isFunction(v) ? v() : v)
+        .val(v)
 
       if(_options.blur) $(element).blur()
     })
@@ -131,11 +145,11 @@
     // special rules
     _options.special()
 
-    // localstorage functionality
-    reuseLocalStorage()
+    // storage functionality
+    useStorage()
   }
 
-  reuseLocalStorage = function() {
+  useStorage = function() {
     var reused  = {},
         saved   = Peteshow.storage.get()
 

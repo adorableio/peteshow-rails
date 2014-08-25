@@ -34,12 +34,6 @@
     return base
   }
 
-  Peteshow.storage.clear = function() {
-    clearLocalStorage()
-    clearCookies()
-    Peteshow.initCommands()
-  }
-
   savedFieldsExist = function() {
     var saved = cookies ? $.cookie('peteshow') : localStorage.getItem('peteshow')
     return (saved != undefined || saved != null)
@@ -66,4 +60,9 @@
     Peteshow.initCommands()
   }
 
+  Peteshow.storage.clear = function() {
+    clearLocalStorage()
+    clearCookies()
+    Peteshow.initCommands()
+  }
 }(jQuery)
