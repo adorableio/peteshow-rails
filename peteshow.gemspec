@@ -12,6 +12,14 @@ Gem::Specification.new do |s|
   s.description = 'Javascript plugin for filling out forms with fake data for testing purposes'
   s.homepage    = json['homepage']
 
+  # TODO: Update s.files to exclude dev files
   s.files           = `git ls-files`.split($\)
   s.require_paths   = ['lib']
+
+  s.add_development_dependency 'rails', '>= 4.0'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'jquery-rails'
 end
