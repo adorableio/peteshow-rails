@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Peteshow do
+describe Peteshow, js: true do
   let(:peteshow_menu) { find('#peteshow') }
 
   before do

@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -15,3 +16,5 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL
 end
+
+Capybara.javascript_driver = :poltergeist
