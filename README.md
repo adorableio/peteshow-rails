@@ -2,7 +2,6 @@
 
 > A rails gem for injecting peteshow, the customizable javascript framework for filling out forms with fake data
 
-
 ![Imgur](http://i.imgur.com/JcT5eMS.png)
 
 ## Getting Started
