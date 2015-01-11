@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.description = 'Javascript plugin for filling out forms with fake data for testing purposes'
   s.homepage    = json['homepage']
 
+  # TODO: Update s.files to exclude dev files
   s.files           = `git ls-files`.split($\)
   s.require_paths   = ['lib']
 
