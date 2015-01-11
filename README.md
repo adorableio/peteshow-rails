@@ -1,5 +1,7 @@
 # Peteshow-rails
 
+[![Build Status](https://travis-ci.org/adorableio/peteshow-rails.svg?branch=master)](https://travis-ci.org/adorableio/peteshow-rails)
+
 > A rails gem for injecting peteshow, the customizable javascript framework for filling out forms with fake data
 
 ![Imgur](http://i.imgur.com/JcT5eMS.png)
